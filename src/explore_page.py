@@ -14,7 +14,7 @@ def show_explore_page():
     st.image(img2,caption='''From the above plot we can see that the data distribution is highly scattered in B, CRIM, 
              and ZN column so we need to reduce that lets cross check it by regplot.''',use_column_width=True)
     
-    img3 = Image.open("EDA\Boston_regplot.jpeg",)
+    img3 = Image.open("EDA/Boston_regplot.jpeg",)
     st.write("""### **Regplot**""")
     st.image(img3,caption='''From the above plot we can see that the data distribution in all columns''',use_column_width=True)
     
