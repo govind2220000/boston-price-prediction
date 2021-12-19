@@ -1,0 +1,35 @@
+<title>Boston House Price Prediction</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<div class="content">
+    <h1 style="text-align: center">Predict Your chances for Admission</h1>
+
+    <div class="form">
+        <form action="/predict" method="POST">
+            Crime Rate:    <input type="Crime Rate" name="Crime Rate" id="Crime Rate" placeholder="Crime Rate"><br></br>
+            Zoning:        <input type="Zoning" name="Zoning" id="Zoning" placeholder="Zoning"><br></br>
+            Industrial:    <input type="Industrial" name="Industrial" id="Industrial" placeholder="Industrial"><br></br>
+
+            Tracts with Charles River?:
+            <select  name="Tracts with Charles River?" id="Tracts with Charles River?">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br></br>
+
+            Nitric Oxide:   <input type="Nitric Oxide" name="Nitric Oxide" id="Nitric Oxide" placeholder="Nitric Oxide Value"><br></br>
+            Average Rooms:  <input type="Average Rooms" name="Average Rooms" id="Average Rooms" placeholder="Average Rooms"><br></br>
+            Age:            <input type="Age" name="Age" id="Age"placeholder="Age" step="any"><br></br>
+            Distance:       <input type="Distance" name="Distance" id="Distance" placeholder="Distance"><br></br>
+            Radius:         <input type="Radius" name="Radius" id="Radius" placeholder="Radius"><br></br>
+            Tax:            <input type="Tax" name="Tax" id="Tax" placeholder="Tax"><br></br>
+            PTRatio:        <input type="PTRatio" name="PTRatio" id="PTRatio" placeholder="PTRatio"><br></br>
+            B:              <input type="B" name="B" id="B" placeholder="B"><br></br>
+            LSTAT:          <input type="LSTAT" name="LSTAT" id="LSTAT" placeholder="LSTAT"><br></br>
+            
+
+            
+</select>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</div>
