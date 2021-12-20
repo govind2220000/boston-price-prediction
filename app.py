@@ -37,7 +37,7 @@ def index():
             
             #  loading the model
             scaler_model = pickle.load(open(f'StandardScaler.pkl', 'rb')) 
-            model = pickle.load(open(f'XGBRegressor.pkl', 'rb'))
+            model = pickle.load(open(f'LinearRegression.pkl', 'rb'))
             
             #Scaling the data
             df[['CRIM','ZN', 'INDUS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'PTRATIO', 'B'  ]] = scaler_model.transform(df[['CRIM','ZN', 'INDUS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'PTRATIO', 'B'  ]])
