@@ -2,11 +2,6 @@ from flask import Flask, render_template, request,jsonify
 from flask_cors import CORS,cross_origin
 import pickle
 import pandas as pd
-# from src.predict_page import show_predict_page
-# from src.explore_page import show_explore_page
-from src.training import training
-from src.prediction import Prediction
-
 app = Flask(__name__) # initializing a flask app
 
 @app.route('/', methods = ['GET']) # route to display the home page):
@@ -40,8 +35,13 @@ def index():
             
             df = pd.DataFrame([[crim, zn, indus, chas, nox, rm, age, dis, rad, ptratio, b, lstat]], columns=['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'PTRATIO', 'B', 'LSTAT'])
             
-            pred = Prediction(df)
-            score = pred.prediction(df)
+            #  loading the model
+            scaler_model = pickle.load(open(f'StandardScaler.pkl', 'rb')) 
+            model = pickle.load(open(f'XGBRegressor.pkl', 'rb'))
+            
+            #Scaling the data
+            df[['CRIM','ZN', 'INDUS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'PTRATIO', 'B'  ]] = scaler_model.transform(df[['CRIM','ZN', 'INDUS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'PTRATIO', 'B'  ]])
+            score = model.predict(df)
             print(f'prediction is, {score[0]}.2f')
             # showing the prediction results in a UI
             return render_template('results.html',prediction=score[0])
